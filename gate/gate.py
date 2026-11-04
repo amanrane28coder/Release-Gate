@@ -9,6 +9,7 @@ Exit codes: 0 = RECOMMEND PASS (still needs a human approve in the Switch room),
             1 = BLOCK, 2 = usage / run error.
 
 Checks, in order:
+  0. Changed files (git status if a git repo, else the file list).
   1. Shipping-guide rules (regex scans of the repo, excluding .git).
      - No hard-coded secret-like tokens (AKIA..., generic api_key assignments).
      - No `TODO: ship` markers left in code.
@@ -65,6 +66,25 @@ def run_tests(repo: Path, test_cmd: str) -> tuple[bool, str]:
     return proc.returncode == 0, summary
 
 
+def diff_summary(repo: Path) -> list[str]:
+    """Changed files, from git if available, else the file list itself."""
+    try:
+        proc = subprocess.run(
+            ["git", "-C", str(repo), "status", "--porcelain"],
+            capture_output=True, text=True, timeout=15,
+        )
+        if proc.returncode == 0:
+            changed = [line[3:] for line in proc.stdout.splitlines() if line.strip()]
+            return changed if changed else ["(no uncommitted changes; reviewing the working tree as-is)"]
+    except (OSError, subprocess.TimeoutExpired):
+        pass
+    return sorted(
+        str(p.relative_to(repo))
+        for p in repo.rglob("*")
+        if p.is_file() and ".git" not in p.parts and "__pycache__" not in p.parts
+    )
+
+
 def main(argv=None) -> int:
     parser = argparse.ArgumentParser(description="Release Gate reviewer check")
     parser.add_argument("--repo", required=True, help="Path to the change to review")
@@ -83,12 +103,18 @@ def main(argv=None) -> int:
 
     guide_findings = scan_guide_rules(repo)
     tests_ok, tests_summary = run_tests(repo, args.test_cmd)
+    changed = diff_summary(repo)
 
     blocked = bool(guide_findings) or not tests_ok
     verdict = "BLOCK" if blocked else "RECOMMEND PASS"
     lines = [
         f"Release Gate verdict: {verdict}",
         f"Repo: {repo}",
+        "",
+        "Changed files:",
+    ]
+    lines += [f"  - {f}" for f in changed]
+    lines += [
         "",
         "Guide checks:",
     ]
