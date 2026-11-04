@@ -51,7 +51,7 @@ define the two jobs, demo good-then-bad in-thread.
 
 ## Submission checklist
 
-- [x] Public repo: https://github.com/amanrane28coder/Switch-flip
+- [x] Public repo: https://github.com/amanrane28coder/Release-Gate
 - [ ] Demo video of the workflow running in the Switch room
 - [ ] This README, explaining Switch use (agents, channel, how to run)
 - [ ] Submitted before Nov 7, 2026, 11:59 PM IST

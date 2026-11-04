@@ -28,5 +28,5 @@ release-manager, and no in-thread decision log. A lone agent in a
 terminal can run `gate/gate.py`, but it cannot be the team's gate.
 
 ## End card
-Repo: https://github.com/amanrane28coder/Switch-flip
+Repo: https://github.com/amanrane28coder/Release-Gate
 Run it: `sh scripts/demo.sh` — good passes, bad blocks.
