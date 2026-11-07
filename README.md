@@ -54,4 +54,4 @@ define the two jobs, demo good-then-bad in-thread.
 - [x] Public repo: https://github.com/amanrane28coder/Release-Gate
 - [x] Demo video of the workflow running in the Switch room: https://www.youtube.com/watch?v=M-V4_l9IZE0
 - [x] This README, explaining Switch use (agents, channel, how to run)
-- [ ] Submitted before Nov 7, 2026, 11:59 PM IST
+- [x] Submitted before Nov 7, 2026, 11:59 PM IST
