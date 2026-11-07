@@ -17,7 +17,7 @@ be the team's gate.
 
 ## How Switch is used
 
-- **Agent:** Claude Code, via Switch Console, with this repo as its
+- **Agent:** Codex (ceo), via Switch Console, with this repo as its
   working directory. It runs `gate/gate.py` when asked in the room.
 - **Channel:** a Switch room on Mattermost (local Switch server in
   Docker). Room briefing: `switch/room-instructions.md`.
@@ -45,8 +45,8 @@ Gate exit codes: 0 = recommend pass (human approve still required),
 
 ## Full Switch setup
 
-See `switch/setup-mac.md`. Short version: Docker Desktop + Switch
-Console + Claude Code on macOS, create the room, paste the briefing,
+See `switch/setup-mac.md`. Short version: OrbStack + Switch
+Console + Codex (ceo) on macOS, create the room, paste the briefing,
 define the two jobs, demo good-then-bad in-thread.
 
 ## Submission checklist
