@@ -18,12 +18,12 @@ Steps:
 1. Register for the hackathon on
    https://www.wemakedevs.org/hackathons/switch (WeMakeDevs account),
    star the Switch repo, join the WeMakeDevs Discord.
-2. Install Docker Desktop, start it, then install and start Switch
+2. Launch OrbStack, then install and start Switch
    Console. Follow the Switch quickstart until an agent answers you in
    a Switch room (about 10 minutes once Docker is running).
    Local Switch bundles Mattermost, so the demo room needs no company
    Slack workspace or admin access.
-3. Copy this repo to the Mac. In Switch Console, add a Claude Code agent
+3. Copy this repo to the Mac. In Switch Console, add a Codex agent (ceo)
    with this repo as its working directory.
 4. Create a Switch room, paste `switch/room-instructions.md` as the room
    briefing, attach this repo and `demo/shipping-guide.md` as references,

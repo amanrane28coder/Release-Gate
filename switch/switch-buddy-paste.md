@@ -4,7 +4,7 @@ You are my Switch assistant. Set up the Release Gate room for me, and
 confirm each step before you create anything:
 
 1. Create a room called "Release Gate" on Mattermost, add me, and add my
-   Claude Code agent (replace this with its registered name from Your
+   Codex agent (ceo) (replace this with its registered name from Your
    Agents: @YOUR-AGENT-NAME). The agent's working directory is
    ~/switch-release-gate.
 2. Set the room briefing to the text in switch/room-instructions.md.
